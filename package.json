@@ -4,11 +4,13 @@
     "description": "My personal website",
     "main": "dist/app.js",
     "scripts": {
+        "lint": "eslint src/**/*.ts && stylelint src/**/*.scss",
+        "lint:fix": "eslint src/**/*.ts --fix && stylelint src/**/*.scss --fix",
         "watch-ts": "tsup --watch",
         "watch-scss": "sass src/scss:dist --watch --style=compressed",
         "watch-http": "es-dev-server --app-index dist/index.html --node-resolve --watch --open",
         "start:dev": "yarn build && concurrently --kill-others 'npm:watch-*'",
-        "build": "rimraf dist && tsup && sass src/scss:dist --style=compressed && cp src/index.html dist"
+        "build": "yarn lint && rimraf dist && tsup && sass src/scss:dist --style=compressed && cp src/index.html dist"
     },
     "repository": "https://github.com/stevancorre/com.git",
     "author": {
@@ -19,10 +21,21 @@
     "license": "MIT",
     "private": true,
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
         "concurrently": "^7.2.1",
         "es-dev-server": "^2.1.0",
+        "eslint": "^8.17.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.6.2",
         "rimraf": "^3.0.2",
         "sass": "^1.52.2",
-        "tsup": "^6.0.1"
+        "stylelint": "^14.8.5",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-standard-scss": "^4.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "tsup": "^6.0.1",
+        "typescript": "^4.7.3"
     }
 }

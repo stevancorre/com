@@ -6,5 +6,5 @@ export default defineConfig({
     entry: ["src/ts/app.ts"],
     minify: true,
     sourcemap: true,
-    outDir: "dist"
+    outDir: "dist",
 });
