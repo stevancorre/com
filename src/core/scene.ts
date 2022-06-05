@@ -1,11 +1,12 @@
 import { Scene as TScene } from "three";
 
 import { config } from "../config";
-import { Camera, Renderer } from ".";
+import { Camera, Renderer, Stats } from ".";
 
 export class Scene extends TScene {
     public readonly camera: Camera;
     public readonly renderer: Renderer;
+    public readonly stats: Stats;
 
     public constructor() {
         super();
@@ -14,6 +15,7 @@ export class Scene extends TScene {
 
         this.camera = new Camera();
         this.renderer = new Renderer();
+        this.stats = new Stats();
 
         window.addEventListener("resize", () => this.handleResize(), false);
     }
@@ -22,6 +24,7 @@ export class Scene extends TScene {
         requestAnimationFrame(() => this.animate());
 
         this.render();
+        this.stats.update();
     }
 
     private render(): void {
