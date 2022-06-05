@@ -7,10 +7,10 @@
         "lint": "eslint src/**/*.ts && stylelint src/**/*.scss",
         "lint:fix": "eslint src/**/*.ts --fix && stylelint src/**/*.scss --fix",
         "watch-ts": "tsup --watch",
-        "watch-scss": "sass src/scss:dist --watch --style=compressed",
+        "watch-scss": "sass src:dist --watch --style=compressed",
         "watch-http": "es-dev-server --app-index dist/index.html --node-resolve --watch --open",
         "start:dev": "yarn build && concurrently --kill-others 'npm:watch-*'",
-        "build": "yarn lint && rimraf dist && tsup && sass src/scss:dist --style=compressed && cp src/index.html dist"
+        "build": "yarn lint && rimraf dist && tsup && sass src:dist --style=compressed && cp public/* dist"
     },
     "repository": "https://github.com/stevancorre/com.git",
     "author": {
