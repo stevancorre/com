@@ -1,0 +1,28 @@
+{
+    "name": "stevancorre-com",
+    "version": "1.0.0",
+    "description": "My personal website",
+    "main": "dist/app.js",
+    "scripts": {
+        "watch-ts": "tsup --watch",
+        "watch-scss": "sass src/scss:dist --watch --style=compressed",
+        "watch-http": "es-dev-server --app-index dist/index.html --node-resolve --watch --open",
+        "start:dev": "yarn build && concurrently --kill-others 'npm:watch-*'",
+        "build": "rimraf dist && tsup && sass src/scss:dist --style=compressed && cp src/index.html dist"
+    },
+    "repository": "https://github.com/stevancorre/com.git",
+    "author": {
+        "name": "Stévan Corre",
+        "email": "me@stevancorre.com",
+        "url": "https://stevancorre.com"
+    },
+    "license": "MIT",
+    "private": true,
+    "devDependencies": {
+        "concurrently": "^7.2.1",
+        "es-dev-server": "^2.1.0",
+        "rimraf": "^3.0.2",
+        "sass": "^1.52.2",
+        "tsup": "^6.0.1"
+    }
+}
