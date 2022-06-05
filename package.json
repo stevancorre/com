@@ -2,15 +2,11 @@
     "name": "stevancorre-com",
     "version": "1.0.0",
     "description": "My personal website",
-    "main": "dist/app.js",
     "scripts": {
         "lint": "eslint src/**/*.ts src/*.ts && stylelint src/*.scss",
         "lint:fix": "eslint src/**/*.ts src/*.ts --fix && stylelint src/*.scss --fix",
-        "watch-ts": "tsup --watch",
-        "watch-scss": "sass src:dist --watch --style=compressed",
-        "watch-http": "es-dev-server --app-index dist/index.html --node-resolve --watch --open",
-        "start:dev": "yarn build && concurrently --kill-others 'npm:watch-*'",
-        "build": "yarn lint && rimraf dist && tsup && sass src:dist --style=compressed && cp public/* dist"
+        "start": "webpack serve --open --config webpack.dev.js",
+        "build": "NODE_ENV=production webpack --config webpack.prod.js"
     },
     "repository": "https://github.com/stevancorre/com.git",
     "author": {
@@ -22,22 +18,33 @@
     "private": true,
     "devDependencies": {
         "@types/three": "^0.141.0",
+        "@types/webpack-env": "^1.17.0",
         "@typescript-eslint/eslint-plugin": "^5.27.0",
         "@typescript-eslint/parser": "^5.27.0",
-        "concurrently": "^7.2.1",
-        "es-dev-server": "^2.1.0",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.7.1",
         "eslint": "^8.17.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
+        "eslint-webpack-plugin": "^3.1.1",
+        "fork-ts-checker-webpack-plugin": "^7.2.11",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.6.0",
+        "node-sass": "^7.0.1",
         "prettier": "^2.6.2",
-        "rimraf": "^3.0.2",
-        "sass": "^1.52.2",
+        "sass-loader": "^13.0.0",
+        "style-loader": "^3.3.1",
         "stylelint": "^14.8.5",
         "stylelint-config-prettier": "^9.0.3",
         "stylelint-config-standard-scss": "^4.0.0",
         "stylelint-prettier": "^2.0.0",
-        "tsup": "^6.0.1",
-        "typescript": "^4.7.3"
+        "ts-loader": "^9.3.0",
+        "typescript": "^4.7.3",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.9.1",
+        "webpack-env": "^0.8.0"
     },
     "dependencies": {
         "three": "^0.141.0"
