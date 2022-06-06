@@ -5,7 +5,7 @@
     "scripts": {
         "lint": "eslint src/**/*.ts src/*.ts && stylelint src/*.scss",
         "lint:fix": "eslint src/**/*.ts src/*.ts --fix && stylelint src/*.scss --fix",
-        "start": "webpack serve --open --config webpack.dev.js",
+        "serve": "webpack serve --open --config webpack.dev.js",
         "build": "NODE_ENV=production webpack --config webpack.prod.js"
     },
     "repository": "https://github.com/stevancorre/com.git",
