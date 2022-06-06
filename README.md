@@ -14,7 +14,7 @@
     <a href="https://nodejs.dev">
         <img src="https://img.shields.io/badge/Node.JS-68A063?style=for-the-badge&logo=node.js&logoColor=white">
     </a>
-    <a href="https://www.w3.org/html/">
+    <a href="https://html.spec.whatwg.org/">
         <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
     </a>
     <a href="https://www.typescriptlang.org">
