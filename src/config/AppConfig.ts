@@ -12,4 +12,8 @@ export interface AppConfig {
     scene: {
         background: Color;
     };
+    cursor: {
+        dotSpeed: number;
+        outlineSpeed: number;
+    };
 }

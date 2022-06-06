@@ -14,4 +14,8 @@ export const config: AppConfig = {
     scene: {
         background: new Color("aqua"),
     },
+    cursor: {
+        dotSpeed: 10,
+        outlineSpeed: 0.9,
+    },
 };
