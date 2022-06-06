@@ -4,7 +4,7 @@ import { AppConfig } from "./AppConfig";
 
 export const config: AppConfig = {
     camera: {
-        fov: 45,
+        size: 5,
         near: 0.25,
         far: 20,
     },

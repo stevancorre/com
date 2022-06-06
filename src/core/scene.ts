@@ -47,8 +47,7 @@ export class Scene extends TScene {
     }
 
     private handleResize() {
-        this.camera.aspect = window.innerWidth / window.innerHeight;
-        this.camera.updateProjectionMatrix();
+        this.camera.updateCamera();
 
         this.renderer.setSize(window.innerWidth, window.innerHeight);
 
