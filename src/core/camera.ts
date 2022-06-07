@@ -15,7 +15,7 @@ export class Camera extends OrthographicCamera {
             config.camera.far,
         );
 
-        this.position.set(1, 1, 1);
+        this.position.set(20, 20, 20);
         this.lookAt(0, 0, 0);
     }
 

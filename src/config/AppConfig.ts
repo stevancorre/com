@@ -10,7 +10,8 @@ export interface AppConfig {
         powerPreference: "high-performance" | "low-power" | "default";
     };
     scene: {
-        background: Color;
+        backgroundColor: Color;
+        lightColor: Color;
     };
     cursor: {
         dotSpeed: number;

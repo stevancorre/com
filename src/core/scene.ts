@@ -16,7 +16,7 @@ export class Scene extends TScene {
     public constructor() {
         super();
 
-        this.background = config.scene.background;
+        this.background = config.scene.backgroundColor;
 
         this.camera = new Camera();
         this.renderer = new Renderer();
