@@ -46,12 +46,14 @@ export class Cursor {
             .sub(this.outlinePosition);
 
         this.dotPosition.add(
-            cursorDiff.multiplyScalar(config.cursor.dotSpeed * Scene.DeltaTime),
+            cursorDiff.multiplyScalar(
+                config.cursor.dotSpeed * Scene.getInstance().getDeltaTime(),
+            ),
         );
         this.outlinePosition.add(
             outlineDiff.multiplyScalar(
                 config.cursor.dotSpeed *
-                    Scene.DeltaTime *
+                    Scene.getInstance().getDeltaTime() *
                     config.cursor.outlineSpeed,
             ),
         );

@@ -15,7 +15,7 @@ export abstract class SceneObject extends Mesh<
     ) {
         super(geometry, material);
 
-        this.scene = Scene.Instance;
+        this.scene = Scene.getInstance();
     }
 
     protected tryGetObjectByName(name: string): Object3D {

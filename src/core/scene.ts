@@ -15,19 +15,22 @@ import { Stats } from "./stats";
 import { SceneObject } from "./sceneObject";
 
 export class Scene extends TScene {
-    private static readonly clock: Clock = new Clock();
     private static instance: Scene;
-    private static deltaTime: number;
 
     public readonly camera: Camera;
     public readonly renderer: Renderer;
     public readonly stats: Stats;
     public readonly cursor: Cursor;
 
+    private readonly clock: Clock;
+
     private objects: SceneObject[] = [];
+    private deltaTime = 0;
 
     public constructor() {
         super();
+
+        Scene.instance = this;
 
         this.background = config.scene.backgroundColor;
 
@@ -36,27 +39,27 @@ export class Scene extends TScene {
         this.stats = new Stats();
         this.cursor = new Cursor();
 
+        this.clock = new Clock();
+
         this.initLights();
 
         window.addEventListener("resize", () => this.handleResize(), false);
 
-        Scene.instance = this;
-
-        Scene.clock.start();
+        this.clock.start();
     }
 
-    public static get DeltaTime(): number {
+    public getDeltaTime(): number {
         return this.deltaTime;
     }
 
-    public static get Instance(): Scene {
+    public static getInstance(): Scene {
         return this.instance;
     }
 
     public animate(): void {
         requestAnimationFrame(() => this.animate());
 
-        Scene.deltaTime = Scene.clock.getDelta();
+        this.deltaTime = this.clock.getDelta();
 
         for (const object of this.objects) {
             object.update?.();
