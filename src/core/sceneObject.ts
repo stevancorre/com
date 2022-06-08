@@ -24,4 +24,6 @@ export abstract class SceneObject extends Mesh<
 
         throw new KeyNotFoundError(name, "Object not found");
     }
+
+    public update?(): void;
 }

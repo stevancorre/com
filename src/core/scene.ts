@@ -1,20 +1,30 @@
-import { AmbientLight, Clock, DirectionalLight, Scene as TScene } from "three";
+import {
+    AmbientLight,
+    Clock,
+    DirectionalLight,
+    Event,
+    Object3D,
+    Scene as TScene,
+} from "three";
 
 import { config } from "../config";
 import { Cursor } from "./cursor";
 import { Renderer } from "./renderer";
 import { Camera } from "./camera";
 import { Stats } from "./stats";
+import { SceneObject } from "./sceneObject";
 
 export class Scene extends TScene {
+    private static readonly clock: Clock = new Clock();
+    private static instance: Scene;
+    private static deltaTime: number;
+
     public readonly camera: Camera;
     public readonly renderer: Renderer;
     public readonly stats: Stats;
     public readonly cursor: Cursor;
 
-    private static readonly clock: Clock = new Clock();
-    private static instance: Scene;
-    private static deltaTime: number;
+    private objects: SceneObject[] = [];
 
     public constructor() {
         super();
@@ -48,8 +58,22 @@ export class Scene extends TScene {
 
         Scene.deltaTime = Scene.clock.getDelta();
 
+        for (const object of this.objects) {
+            object.update?.();
+        }
+
         this.render();
         this.stats.update();
+    }
+
+    public add(...object: Object3D<Event>[]): this {
+        super.add(...object);
+
+        this.objects = this.children
+            .filter((x) => x instanceof SceneObject)
+            .map((x) => x as SceneObject);
+
+        return this;
     }
 
     private initLights() {
