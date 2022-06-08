@@ -1,4 +1,5 @@
-import { BufferGeometry, Material, Mesh } from "three";
+import { KeyNotFoundError } from "not-enough-errors";
+import { BufferGeometry, Material, Mesh, Object3D } from "three";
 
 import { Scene } from "./scene";
 
@@ -15,5 +16,12 @@ export abstract class SceneObject extends Mesh<
         super(geometry, material);
 
         this.scene = Scene.Instance;
+    }
+
+    protected tryGetObjectByName(name: string): Object3D {
+        const object: Object3D | undefined = this.scene.getObjectByName(name);
+        if (object !== undefined) return object;
+
+        throw new KeyNotFoundError(name, "Object not found");
     }
 }
