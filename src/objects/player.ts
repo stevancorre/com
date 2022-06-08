@@ -41,7 +41,7 @@ export class Player extends SceneObject {
         const hit: Intersection | undefined = this.raycaster.intersectObject(
             this.ground,
         )[0];
-        if (hit === undefined) return;
+        if (hit === undefined || hit.point.y < 0.49) return;
 
         this.position.set(hit.point.x, 1, hit.point.z);
     }
