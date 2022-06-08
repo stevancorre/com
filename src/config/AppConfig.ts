@@ -17,4 +17,7 @@ export interface AppConfig {
         dotSpeed: number;
         outlineSpeed: number;
     };
+    player: {
+        speed: number;
+    };
 }

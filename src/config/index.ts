@@ -19,4 +19,7 @@ export const config: AppConfig = {
         dotSpeed: 10,
         outlineSpeed: 0.9,
     },
+    player: {
+        speed: 10,
+    },
 };
