@@ -1,4 +1,4 @@
-import { BasicShadowMap, sRGBEncoding, WebGLRenderer } from "three";
+import { PCFSoftShadowMap, sRGBEncoding, WebGLRenderer } from "three";
 
 import { config } from "../config";
 
@@ -15,7 +15,7 @@ export class Renderer extends WebGLRenderer {
         this.setSize(window.innerWidth, window.innerHeight);
 
         this.shadowMap.enabled = true;
-        this.shadowMap.type = BasicShadowMap;
+        this.shadowMap.type = PCFSoftShadowMap;
 
         document.body.appendChild(this.domElement);
     }

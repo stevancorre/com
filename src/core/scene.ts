@@ -1,4 +1,4 @@
-import { Clock, DirectionalLight, Scene as TScene } from "three";
+import { AmbientLight, Clock, DirectionalLight, Scene as TScene } from "three";
 
 import { config } from "../config";
 import { Cursor } from "./cursor";
@@ -53,11 +53,21 @@ export class Scene extends TScene {
     }
 
     private initLights() {
-        const light = new DirectionalLight(config.scene.lightColor, 1.1);
+        const light = new DirectionalLight(config.scene.lightColor, 0.9);
         light.castShadow = true;
-        light.position.set(50, 180, 90);
+        light.position.set(-10, 20, 10);
 
-        this.add(light);
+        light.shadow.camera.left = -20;
+        light.shadow.camera.right = 20;
+        light.shadow.camera.top = 20;
+        light.shadow.camera.bottom = -20;
+
+        light.shadow.mapSize.x = 4096;
+        light.shadow.mapSize.y = 4096;
+
+        const ambiant = new AmbientLight(config.scene.lightColor, 0.2);
+
+        this.add(light, ambiant);
     }
 
     private render(): void {
