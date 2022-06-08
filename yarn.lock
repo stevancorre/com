@@ -3389,6 +3389,11 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
+lightsb@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/lightsb/-/lightsb-1.0.10.tgz#94b277f982d71bf8cefb88525dd91a92c6c19c0b"
+  integrity sha512-pu3oh5WrNcBlF8Ia1cKXRXbKS1aZvAGAtjxkap9vl/4lmLFSRvjC2wcYZb2SXpxOv/y9p9v4qO0U8HvsLVQZHA==
+
 lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
@@ -3946,6 +3951,13 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
+not-enough-errors@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/not-enough-errors/-/not-enough-errors-1.0.0.tgz#7e563068f19312a5b6d2102524e74b301869c8ff"
+  integrity sha512-cAwH1yOvq1MGG1pFZYKHgW4PAMmhzC0LR1jGUVWf0FHswQFz1nkE6S6qiJBR1U1L6lgMKwpUMXLKzPBcUzbHzQ==
+  dependencies:
+    lightsb "^1.0.10"
 
 npm-run-path@^4.0.1:
   version "4.0.1"

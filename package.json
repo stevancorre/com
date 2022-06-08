@@ -48,6 +48,7 @@
         "webpack-env": "^0.8.0"
     },
     "dependencies": {
+        "not-enough-errors": "^1.0.0",
         "three": "^0.141.0"
     }
 }
